@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seo_manager_by_contents",
+  "info": {
+    "singularName": "seo-manager-by-content",
+    "pluralName": "seo-manager-by-contents",
+    "displayName": "SeoManagerByContent"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "meta_title": {
+      "type": "string",
+      "required": true
+    },
+    "meta_description": {
+      "type": "text"
+    },
+    "meta_keywords": {
+      "type": "text"
+    },
+    "content_manager": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::content-manager.content-manager",
+      "inversedBy": "seo_manager_by_content"
+    }
+  }
+}

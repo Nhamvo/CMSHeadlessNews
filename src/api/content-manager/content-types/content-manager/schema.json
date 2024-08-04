@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "content_managers",
+  "info": {
+    "singularName": "content-manager",
+    "pluralName": "content-managers",
+    "displayName": "ContentManager",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "text"
+    },
+    "picture": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "content_managers"
+    },
+    "seo_manager_by_content": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::seo-manager-by-content.seo-manager-by-content",
+      "mappedBy": "content_manager"
+    }
+  }
+}
